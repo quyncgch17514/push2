@@ -1,0 +1,40 @@
+<div class="container text-center mt-3 mb-3 col-md-8">
+   <table class="table table-success">
+      <tr>
+         <th class="h1 text text-danger" colspan="6">MOVIE LIST </th>
+      </tr>
+      <tr>
+         <th colspan="4">
+            <form action="/movie/search" method="post">
+               <input class="form-control" type="search" name="keyword" placeholder="Search by movie title">
+            </form>
+         </th>
+         <th colspan="2">
+            <a class="btn btn-primary" href="/movie/ascending">Sort by duration ascending</a>
+            <a class="btn btn-success" href="/movie/descending">Sort by duration descending</a>
+         </th>
+      </tr>
+      <tr class="h5">
+         <th style="color: blue;">Movie Title</th>
+         <th style="color: blue;">Movie Director</th>
+         <th style="color: blue;">Published Year</th>
+         <th style="color: blue;">Movie Length</th>
+         <th style="color: blue;">Movie Poster</th>
+         <th style="color: blue;">Movie Trailer</th>
+      </tr>
+      {{#each movies }}
+      <tr>
+         <th>{{ title }}</th>
+         <th>{{ director }}</th>
+         <th>{{ year }}</th>
+         <th>{{ duration }} (mins)</th>
+         <th>
+            <img src="{{ poster }}" width="150" height="150">
+         </th>
+         <th>
+            <iframe src="https://www.youtube.com/embed/{{ trailer }}" width="300" height="250"></iframe>
+         </th>
+      </tr>
+      {{/each}}
+   </table>
+</div>
